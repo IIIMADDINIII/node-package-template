@@ -13,8 +13,8 @@ devDependencies:
     specifier: ^3.21.0
     version: 3.21.0
   rollup-config-iiimaddiniii:
-    specifier: ^0.1.0
-    version: 0.1.0(@types/node@18.16.0)(rollup@3.21.0)(typescript@5.0.4)
+    specifier: file:../rollup-config-iiimaddiniii
+    version: file:../rollup-config-iiimaddiniii(@types/node@18.16.0)(rollup@3.21.0)(typescript@5.0.4)
   typescript:
     specifier: ^5.0.4
     version: 5.0.4
@@ -338,24 +338,6 @@ packages:
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
-  /rollup-config-iiimaddiniii@0.1.0(@types/node@18.16.0)(rollup@3.21.0)(typescript@5.0.4):
-    resolution: {integrity: sha512-GTT1mIRvWBOI1EJKq97vl672bV7UrtiCllr/8a9cECAurjwYzTC0D4HeOabuxFTN7nBpBYN9Sfg+aFmnHEyGPw==}
-    dependencies:
-      '@rollup/plugin-commonjs': 24.1.0(rollup@3.21.0)
-      '@rollup/plugin-json': 6.0.0(rollup@3.21.0)
-      '@rollup/plugin-node-resolve': 15.0.2(rollup@3.21.0)
-      '@rollup/plugin-terser': 0.4.1(rollup@3.21.0)
-      '@rollup/plugin-typescript': 11.1.0(rollup@3.21.0)(tslib@2.5.0)(typescript@5.0.4)
-      '@rollup/pluginutils': 5.0.2(rollup@3.21.0)
-      rollup-plugin-consts: 1.1.0(rollup@3.21.0)
-      rollup-plugin-include-sourcemaps: 0.7.0(@types/node@18.16.0)(rollup@3.21.0)
-      tslib: 2.5.0
-    transitivePeerDependencies:
-      - '@types/node'
-      - rollup
-      - typescript
-    dev: true
-
   /rollup-plugin-consts@1.1.0(rollup@3.21.0):
     resolution: {integrity: sha512-RRFKQ/IGK7Rs9q4Tb/l/bnOy0jWJUX1AYGqKbxZsgKoz61Fd9lVEmmJ8ytYQJ5hvyC5t8w9niy2svjmScoF6iw==}
     peerDependencies:
@@ -442,4 +424,25 @@ packages:
 
   /wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+    dev: true
+
+  file:../rollup-config-iiimaddiniii(@types/node@18.16.0)(rollup@3.21.0)(typescript@5.0.4):
+    resolution: {directory: ../rollup-config-iiimaddiniii, type: directory}
+    id: file:../rollup-config-iiimaddiniii
+    name: rollup-config-iiimaddiniii
+    version: 0.1.0
+    dependencies:
+      '@rollup/plugin-commonjs': 24.1.0(rollup@3.21.0)
+      '@rollup/plugin-json': 6.0.0(rollup@3.21.0)
+      '@rollup/plugin-node-resolve': 15.0.2(rollup@3.21.0)
+      '@rollup/plugin-terser': 0.4.1(rollup@3.21.0)
+      '@rollup/plugin-typescript': 11.1.0(rollup@3.21.0)(tslib@2.5.0)(typescript@5.0.4)
+      '@rollup/pluginutils': 5.0.2(rollup@3.21.0)
+      rollup-plugin-consts: 1.1.0(rollup@3.21.0)
+      rollup-plugin-include-sourcemaps: 0.7.0(@types/node@18.16.0)(rollup@3.21.0)
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - '@types/node'
+      - rollup
+      - typescript
     dev: true
