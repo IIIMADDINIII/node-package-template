@@ -15,9 +15,8 @@
     }
   },
   "scripts": {
-    "clean": "pnpx rimraf ./.rollup.cache/ ./dist/ ./node_modules/ ./tsconfig.tsbuildinfo",
-    "buildRollup": "pnpm exec rollup --config node:iiimaddiniii && pnpm dlx file-cli write ./dist/esm/package.json {\\\"type\\\":\\\"module\\\"}",
-    "build": "pnpm install && pnpm run buildRollup",
+    "clean": "pnpm install && pnpm exec gulp clean",
+    "build": "pnpm install && pnpm exec gulp build",
     "buildCi": "set prod=true && pnpm run clean && pnpm install --frozen-lockfile && pnpm run buildRollup"
   },
   "repository": {
@@ -34,6 +33,10 @@
     "@types/node": "^18.16.0",
     "typescript": "^5.0.4",
     "rollup": "^3.21.0",
+    "gulp": "^4.0.2",
+    "gulp-execa": "^4.5.0",
+    "del": "^7.0.0",
+    "globby": "^13.1.4",
     "rollup-config-iiimaddiniii": "^0.1.3"
   },
   "dependencies": {
