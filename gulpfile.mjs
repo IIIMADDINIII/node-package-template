@@ -1,17 +1,11 @@
 import gulp from "gulp";
 import { exec } from "gulp-execa";
 import * as fs from "fs/promises";
-import { deleteAsync } from 'del';
 
 let prod = false;
 
 export async function clean() {
-  let gitIgnore = fs.readFile(path);
-}
-
-export async function build() {
-  console.log("test");
-  return await bundle();
+  await exec("git clean -e !/node_modules/ -dfX");
 }
 
 export async function bundle() {
@@ -21,4 +15,14 @@ export async function bundle() {
   }
   await exec("pnpm exec rollup --config node:iiimaddiniii", { env });
   fs.writeFile("./dist/esm/package.json", `{"type":"module"}`);
+}
+
+export async function build() {
+  return await bundle();
+}
+
+export async function buildCi() {
+  prod = true;
+  await clean();
+  await bundle();
 }
