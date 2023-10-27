@@ -1,28 +1,17 @@
-import gulp from "gulp";
-import { exec } from "gulp-execa";
-import * as fs from "fs/promises";
+import { tasks, tools } from "@iiimaddiniii/js-build-tool";
 
-let prod = false;
+export const clean = tools.exitAfter(
+  tasks.cleanWithGit());
 
-export async function clean() {
-  await exec("git clean -e !/node_modules/ -dfX");
-}
+export const build = tools.exitAfter(
+  tasks.selectPnpmAndInstall(),
+  tasks.rollup.build());
 
-export async function bundle() {
-  let env = {};
-  if (prod) {
-    env.prod = "true";
-  }
-  await exec("pnpm exec rollup --config node:iiimaddiniii", { env });
-  fs.writeFile("./dist/esm/package.json", `{"type":"module"}`);
-}
+export const buildCi = tools.exitAfter(
+  tasks.cleanWithGit(),
+  tasks.prodSelectPnpmAndInstall(),
+  tasks.rollup.buildAndRunTests());
 
-export async function build() {
-  return await bundle();
-}
-
-export async function buildCi() {
-  prod = true;
-  await clean();
-  await bundle();
-}
+export const test = tools.exitAfter(
+  tasks.selectPnpmAndInstall(),
+  tasks.rollup.buildAndRunTests());

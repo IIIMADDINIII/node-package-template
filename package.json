@@ -1,7 +1,7 @@
 {
   "name": "node-package-template",
   "version": "0.0.1",
-  "description": "Tamlate for creating a NodeJs package",
+  "description": "Template for creating a NodeJs package",
   "exports": {
     ".": {
       "import": {
@@ -15,9 +15,11 @@
     }
   },
   "scripts": {
-    "clean": "pnpm dlx rimraf ./node_modules/ && pnpm install && pnpm exec gulp clean",
-    "build": "pnpm install && pnpm exec gulp build",
-    "buildCi": "pnpm install --frozen-lockfile && pnpm exec gulp buildCi"
+    "clean": "pnpm run gulp clean",
+    "build": "pnpm run gulp build",
+    "buildCi": "pnpm run gulp buildCi",
+    "test": "pnpm run gulp test",
+    "gulp": "pnpm --package=@iiimaddiniii/js-build-tool@0.4.1 dlx js-build-tool"
   },
   "repository": {
     "type": "git",
@@ -30,15 +32,11 @@
   },
   "homepage": "https://github.com/IIIMADDINIII/node-package-template#readme",
   "devDependencies": {
-    "@types/node": "^18.16.0",
-    "typescript": "^5.0.4",
-    "rollup": "^3.21.0",
-    "gulp": "^4.0.2",
-    "gulp-execa": "^4.5.0",
-    "rollup-config-iiimaddiniii": "^0.2.0"
+    "@types/node": "^20.8.9",
+    "ava": "^5.3.1",
+    "@iiimaddiniii/js-build-tool": "^0.4.1"
   },
   "dependencies": {
-    "tslib": "^2.5.0"
-  },
-  "rollup": {}
+    "tslib": "^2.6.2"
+  }
 }
