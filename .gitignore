@@ -3,3 +3,5 @@
 /dist/
 /tests/
 /tsconfig.tsbuildinfo
+/*.tsbuildinfo
+/coverage
