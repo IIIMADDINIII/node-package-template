@@ -7,6 +7,6 @@
 /tests/
 /*/tests/
 /*.tsbuildinfo
-/*/tsconfig.tsbuildinfo
+/*/*.tsbuildinfo
 /out/
 /download/
